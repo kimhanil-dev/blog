@@ -24,7 +24,7 @@ jobs:
     
     - name: Add destination repository  as a remote
       run: sudo dir ./build/web
-    - run: git remote add build https://kimhan-dev:${{ secrets.GH_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
+    - run: git remote add build https://kimhan-dev:${{ secrets.IO_REPO_ACCESS_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
     
     - name: Push to kimhanil-dev.github.io
       run: sudo dir ./build/web
