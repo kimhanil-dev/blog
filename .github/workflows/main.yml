@@ -21,8 +21,8 @@ jobs:
     - run: |
         sudo dir ./build/web
         git init
-        git config user.email "khlj752@naver.com"
-        git config user.name "kimhanil-dev"
+        git config --global user.email "khlj752@naver.com"
+        git config --global user.name "kimhanil-dev"
         git clone --branch main https://kimhanil-dev:${{ secrets.GH_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
         git add .
         git commit -m "Build"
