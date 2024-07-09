@@ -24,7 +24,7 @@ jobs:
     
     - name: Add destination repository  as a remote
       working-directory: ./build/web/
-      run: git remote add origin https://kimhan-dev:${{ secrets.GH_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
+      run: git remote add build https://kimhan-dev:${{ secrets.GH_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
     
     - name: Push to kimhanil-dev.github.io
       working-directory: ./build/web/
