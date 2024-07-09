@@ -18,7 +18,8 @@ jobs:
     - run: flutter --version
     - run: flutter pub get
     - run: flutter build web
-      
+
+    - uses: actions/checkout@master
     - name: publish:slack
       uses: bitprj/push-subdir@0.3
       env:
