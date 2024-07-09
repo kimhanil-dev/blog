@@ -25,6 +25,8 @@ jobs:
         git config user.email "khlj752@naver.com"
         git config user.name "kimhanil-dev"
         git remote add build https://kimhanil-dev:${{ secrets.GH_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
+    - name: push
+      run: |
         git add .
         git commit -m "Build"
         git push build main
