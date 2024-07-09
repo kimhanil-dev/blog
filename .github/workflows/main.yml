@@ -23,10 +23,10 @@ jobs:
         git config --global user.email 'khlj752@naver.com'
     
     - name: Add destination repository  as a remote
-    - run: sudo cd ./build/web
+      run: sudo cd ./build/web
     - run: git remote add build https://kimhan-dev:${{ secrets.GH_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
     
     - name: Push to kimhanil-dev.github.io
-    - run: sudo cd ./build/web
+      run: sudo cd ./build/web
     - run: git push origin main
         
