@@ -19,11 +19,13 @@ jobs:
     - run: flutter pub get
     - run: flutter build web
 
-    - name: Deploy
-      uses: s0/git-publish-subdir-action@develop
-      env:
-        REPO: git@github.com:kimhanil-dev/kimhanil-dev.github.io.git
-        BRANCH: main
-        FOLDER: build/web
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+    - name: Set Git
+    - run: |
+        sudo dir ./build/web
+        git init
+        git config user.email "khlj752@naver.com"
+        git config user.name "kimhanil-dev"
+        git remote add build https://kimhanil-dev:${{ secrets.GITHUB_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
+        git add .
+        git commit -m "Build"
+        git push build main
