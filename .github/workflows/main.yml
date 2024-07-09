@@ -28,4 +28,5 @@ jobs:
         destination_repo: 'kimhanil-dev/kimhanil-dev.github.io'
         user_email: 'khlj752@naver.com'
         user_name: 'kimhanil-dev'
+        destination_branch: 'main'
         commit_msg: '[GHA] Update the test files.'
