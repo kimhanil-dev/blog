@@ -19,8 +19,6 @@ jobs:
     - run: flutter pub get
     - run: flutter build web
       
-    
-    - uses: actions/checkout@master
     - name: publish:starters
       uses: johno/actions-push-subdirectories@master
       env:
