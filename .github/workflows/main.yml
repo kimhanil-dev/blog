@@ -19,15 +19,13 @@ jobs:
     - run: flutter pub get
     - run: flutter build web
       
-    - name: Set up Git
-      run: |
-        git config --global user.name github-actions[bot]
-        git config --global user.email github-actions[bot]@users.noreply.github.com
-    
-    - name: Add destination repository  as a remote
-      run: sudo dir ./build/web
-    - run: git remote add build https://kimhan-dev:${{ secrets.GITHUB_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
-
-    - name: Push to kimhanil-dev.github.io
-      run: sudo dir ./build/web
-    - run: git push build main
+    - name: Pushes test folder
+      uses: datalbry/copy_folder_to_another_repo_action@1.0.0
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.IO_REPO_ACCESS_TOKEN }}
+      with:
+        source_folder: 'build/web'
+        destination_repo: 'kimhanil-dev/kimhanil-dev.github.io'
+        user_email: 'khlj752@naver.com'
+        user_name: 'kimhanil-dev'
+        commit_msg: '[GHA] Update the test files.'
