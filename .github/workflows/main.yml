@@ -19,10 +19,16 @@ jobs:
     - run: flutter build web
 
     - run: |
+        sudo dir ./build/web
         git init
-        git config user.email "khlj752@naver.com"
-        git config user.name "kimhanil-dev"
-        git clone --branch main https://kimhanil-dev:${{ secrets.GH_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
-        git add .
-        git commit -m "Build"
-        git push https://kimhanil-dev:${{ secrets.GH_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git main
+
+    - name: Pushes to another repository
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
+      with:
+        source-directory: 'build/web'
+        destination-github-username: 'kimhanil-dev'
+        destination-repository-name: 'kimhanil-dev.github.io'
+        user-email: khlj752@naver.com
+        target-branch: main
