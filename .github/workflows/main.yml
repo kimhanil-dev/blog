@@ -19,14 +19,10 @@ jobs:
     - run: flutter pub get
     - run: flutter build web
       
-    - name: Pushes test folder
-      uses: datalbry/copy_folder_to_another_repo_action@1.0.0
+    - name: publish:slack
+      uses: bitprj/push-subdir@0.3
       env:
         API_TOKEN_GITHUB: ${{ secrets.IO_REPO_ACCESS_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        source_folder: 'build/web'
-        destination_repo: 'kimhanil-dev/kimhanil-dev.github.io'
-        user_email: 'khlj752@naver.com'
-        user_name: 'kimhanil-dev'
-        destination_branch: 'main'
-        commit_msg: '[GHA] Update the test files.'
+        args: build/web kimhanil-dev kimhanil-dev.github.io main
