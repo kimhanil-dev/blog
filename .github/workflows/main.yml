@@ -20,7 +20,7 @@ jobs:
     - run: flutter build web
 
     - name: Set Git
-    - run: |
+      run: |
         sudo dir ./build/web
         git init
         git config user.email "khlj752@naver.com"
