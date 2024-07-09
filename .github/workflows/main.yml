@@ -1,10 +1,9 @@
 name: flutter-build
 on: [push]
-permissions:
-  contents: write
-  pull-requests: write
 jobs:
   check-bats-version:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
     - name: Clone repository
