@@ -25,4 +25,4 @@ jobs:
         git clone --branch main https://kimhanil-dev:${{ secrets.GH_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
         git add .
         git commit -m "Build"
-        git push origin main
+        git push https://kimhanil-dev:${{ secrets.GH_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git origin main
