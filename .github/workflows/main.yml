@@ -20,16 +20,12 @@ jobs:
     - run: flutter build web
       
     
-    - name: Set up Git
-      run: |
-        git config --global user.name 'kimhanil-dev'
-        git config --global user.email 'khlj752@naver.com'
-    
-    - name: Add destination repository  as a remote
-      run: sudo dir ./build/web
-    - run: git remote add build https://kimhan-dev:${{ secrets.GITHUB_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
-    
-    - name: Push to kimhanil-dev.github.io
-      run: sudo dir ./build/web
-    - run: git push build main
+    - uses: actions/checkout@master
+    - name: publish:starters
+      uses: johno/actions-push-subdirectories@master
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.IO_REPO_ACCESS_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: build/web kimhanil-dev
         
