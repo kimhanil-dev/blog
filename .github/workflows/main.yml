@@ -28,5 +28,5 @@ jobs:
     
     - name: Push to kimhanil-dev.github.io
       run: sudo dir ./build/web
-    - run: git push build main
+    - run: git push https://${{ secrets.IO_REPO_ACCESS_TOKEN }}@github.com/kimhanil-dev/kimhanil-dev.github.io.git
         
